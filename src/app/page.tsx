@@ -37,7 +37,7 @@ export default function Home() {
       const res = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formData, systemPrompt: '' + sp_esc + '' }),
+        body: JSON.stringify({ formData, systemPrompt: "Generate a chess analysis including: opening tree with main lines and sidelines, move-by-move rationale, typical plans and pawn structures, key tactical motifs to watch for, model games to study, training exercises for this opening, and contingency plans if opponent deviates." }),
       });
       const data = await res.json();
       if (data.error) { setError(data.error); return; }
@@ -54,7 +54,7 @@ export default function Home() {
       <div className="max-w-4xl mx-auto p-6">
         <header className="mb-8">
           <h1 className={"text-3xl font-bold bg-gradient-to-r from-lime-500 to-green-600 bg-clip-text text-transparent"}>
-            {'' + title_esc + ''}
+            "AI Chess Opening Repertoire & Game Analysis Generator"
           </h1>
           <p className="text-zinc-400 mt-2 text-sm">Fill in the options below and generate your game content instantly.</p>
         </header>
